@@ -1,23 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 /** Utils */
 import { getRandomInt } from '../../../utils';
 /** Styled Components */
-import { Text, TextCode , Heading, BoxBlock } from './styles';
+import { Heading, Text, TextCode, PageWrapper } from '../../../themes/styledComponents';
+import { BoxBlock } from './styles';
 
 const Block: React.FC = () => {
 
     // functions
     const morphRandom = (id: string) => {
-        const width = getRandomInt(50, 900);
-        const height = getRandomInt(100, 300);
+        const width = getRandomInt(10, 100);
+        const height = getRandomInt(50, 100);
         const elmt = document.getElementById(id);
         if (elmt) {
-            elmt.style.width = width.toString() + 'px';
+            elmt.style.width = width.toString() + '%';
             elmt.style.height = height.toString() + 'px';
         }
     }
     return(
-        <Fragment>
+        <PageWrapper>
              <Heading>:block</Heading>
              <ul style={{marginTop: '20px'}}>
                  <li>
@@ -63,8 +64,7 @@ const Block: React.FC = () => {
              </Text>
              <div
                 style={{
-                    width: '50%',
-                    height: '30%',
+                    height: '300px',
                     padding: '50px',
                     marginTop: '20px'
                 }}
@@ -85,7 +85,7 @@ const Block: React.FC = () => {
                     </Text>
                 </BoxBlock>
              </div>
-        </Fragment>
+        </PageWrapper>
     );
 }
 

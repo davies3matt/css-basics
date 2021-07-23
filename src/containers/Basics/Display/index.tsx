@@ -4,7 +4,7 @@ import { DisplayTypes } from '../../../utils/constants';
 /** Styling */
 import './styles.css'
 /** Styled Componenets */
-import { Heading, Box, Text, TextCode, Button } from './styles';
+import { Heading, Box, Text, TextCode, Button } from '../../../themes/styledComponents';
 /** Components */
 import Block from './Block';
 import Inline from './Inline';
@@ -42,27 +42,18 @@ const Display: React.FC = () => {
                     <TextCode>display</TextCode> 
                     {` property specifies the display behavior (the type of rendering box) of an element`}
                 </Text>
-                <Button 
-                    id={DisplayTypes.INLINE} 
-                    style={{ marginTop: "20px"}}
-                    onClick={() => setDisplayType(DisplayTypes.INLINE)}
-                    >
-                    :inline
-                </Button>
-                <Button 
-                    id={DisplayTypes.INLINE_BLOCK} 
-                    style={{ marginTop: "20px", marginLeft: "20px"}}
-                    onClick={() => setDisplayType(DisplayTypes.INLINE_BLOCK)}
-                    >
-                    :inline-block
-                </Button>
-                <Button 
-                    id={DisplayTypes.BLOCK} 
-                    style={{ marginTop: "20px", marginLeft: "20px"}}
-                    onClick={() => setDisplayType(DisplayTypes.BLOCK)}
-                    >
-                    :block
-                </Button>
+                {Object.values(DisplayTypes).map(type => {
+                    return (
+                        <Button
+                            key={type.valueOf()} 
+                            id={type.valueOf()} 
+                            style={{ marginTop: "20px", marginLeft: type !== DisplayTypes.INLINE ? '20px': 0}}
+                            onClick={() => setDisplayType(type.valueOf())}
+                            >
+                            :{type.valueOf()}
+                        </Button>
+                    )
+                })}
                 <Box style={{marginTop: '25px'}}>
                     {displayType === DisplayTypes.BLOCK && <Block/>}
                     {displayType === DisplayTypes.INLINE && <Inline/>}
