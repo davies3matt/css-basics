@@ -22,6 +22,11 @@ const AsyncDisplay = Loadable({
     loading: Loading,
 })
 
+const AsyncPosition = Loadable({
+    loader: () => import('../containers/Basics/Position'),
+    loading: Loading,
+})
+
 const PublicRoutes = [
     {
         title: 'Home',
@@ -45,6 +50,12 @@ const PublicRoutes = [
         title: 'Display',
         path: '/display',
         component: AsyncDisplay,
+        exact: true
+    },
+    {
+        title: 'Position',
+        path: '/position',
+        component: AsyncPosition,
         exact: true
     },
 ];

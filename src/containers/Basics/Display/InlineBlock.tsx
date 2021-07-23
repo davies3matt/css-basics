@@ -1,10 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 /** Styled Components */
-import { Heading, Text, TextCode , BoxInlineBlock, Box} from './styles';
+import { Box, Heading, Text, TextCode, Row, PageWrapper } from '../../../themes/styledComponents';
+import {  BoxInlineBlock } from './styles';
 
 const InlineBlock: React.FC = () => {
     return(
-        <Fragment>
+        <PageWrapper>
             <Heading>:inline-block</Heading>
             <ul style={{ marginTop: '20px'}}>
                 <li>
@@ -20,10 +21,8 @@ const InlineBlock: React.FC = () => {
                     <Text>
                         {`Unlike `}
                         <TextCode>:inline</TextCode>
-                        {` elements. `}
-                        <TextCode>top</TextCode>
-                        {` and `}
-                        <TextCode>bottom</TextCode>
+                        {` elements, `}
+                        <TextCode>vertical</TextCode>
                         {` `}
                         <TextCode>margin</TextCode>
                         {` and `}
@@ -42,32 +41,29 @@ const InlineBlock: React.FC = () => {
                         marginTop: '30px',
                         fontSize: '20px',
                         fontWeight: 250,
+                        textAlign: 'center'
                     }}
                 >
-                    {`Hover over this `}
-                    <TextCode>:inline</TextCode>
-                    {` element to add `}
-                    <TextCode>padding</TextCode>
-                    {` and `}
-                    <TextCode>margin</TextCode>
-                    {` properties `}
-                    <BoxInlineBlock>:hover over me!</BoxInlineBlock>
-                    {` These properties are respected by `}
-                    <TextCode>horizontal</TextCode>
-                    {` and `}
-                    <TextCode>vertical</TextCode>
-                    { ` elements`}
+                    <Row>
+                        {`Hover over this `}
+                        <TextCode>:inline</TextCode>
+                        {` element to add `}
+                        <TextCode>padding</TextCode>
+                        {` and `}
+                        <TextCode>margin</TextCode>
+                        {` properties `}
+                    </Row>
+                    <Row>
+                        <BoxInlineBlock>:hover over me!</BoxInlineBlock>
+                        {` These properties are respected by `}
+                        <TextCode>horizontal</TextCode>
+                        {` and `}
+                        <TextCode>vertical</TextCode>
+                        { ` elements`}
+                    </Row>
                 </Box>
             </ul>
-            <div>
-                <BoxInlineBlock>kinda</BoxInlineBlock>
-                <BoxInlineBlock>shaky when you</BoxInlineBlock>
-                <BoxInlineBlock>hover</BoxInlineBlock>
-                <BoxInlineBlock>over these jeans</BoxInlineBlock>
-                <BoxInlineBlock>you definetely know what i</BoxInlineBlock>
-                <BoxInlineBlock>mean</BoxInlineBlock>
-            </div>
-        </Fragment>
+        </PageWrapper>
     );
 }
 
