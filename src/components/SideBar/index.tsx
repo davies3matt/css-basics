@@ -5,11 +5,13 @@ import styled from 'styled-components';
 import './styles.css';
 
 const ContentWrapper = styled.div`
-  height: 100%;
+  display: inline-block;
   background: #EDFDFB;
-  min-height: 90vh;
-  position: relative;
+  position: absolute;
   left: 15%;
+  height: 100%;
+  width: 85vw;
+  overflow: auto;
 `;
 
 const SideBar: React.FC = (props) => {
@@ -23,12 +25,14 @@ const SideBar: React.FC = (props) => {
 
     return (
         <Fragment>
-        <div className="sideBar">
-            <h1 className="sideLink" onClick={() => directTo('/display')}>Display</h1>
-            <h1 className="sideLink">Position</h1>
-            <h1 className="sideLink">Float</h1>
+        <div>
+            <div className="sideBar">
+                <h1 className="sideLink" onClick={() => directTo('/display')}>Display</h1>
+                <h1 className="sideLink" onClick={() => directTo('/position')}>Position</h1>
+                <h1 className="sideLink">Float</h1>
+            </div>
+            <ContentWrapper>{children}</ContentWrapper>
         </div>
-        <ContentWrapper>{children}</ContentWrapper>
         </Fragment>
     );
 }
