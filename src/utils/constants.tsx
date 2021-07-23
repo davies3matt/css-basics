@@ -1,5 +1,13 @@
 export const DisplayTypes = {
-    BLOCK: 'block',
     INLINE: 'inline',
-    INLINE_BLOCK: 'inline-block'
+    INLINE_BLOCK: 'inline-block',
+    BLOCK: 'block'
+}
+
+export const PositionTypes = {
+    STATIC: 'static',
+    RELATIVE: 'relative',
+    FIXED: 'fixed',
+    ABSOLUTE: 'absolute',
+    STICKY: 'sticky'
 }
